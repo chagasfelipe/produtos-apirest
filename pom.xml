@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.produtos</groupId>
-	<artifactId>api</artifactId>
+	<artifactId>apirest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>API Rest Produtos</name>
 	<description>Projeto Exemplo API Rest Produtos</description>

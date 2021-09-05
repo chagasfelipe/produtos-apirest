@@ -1,4 +1,4 @@
-package br.com.produtos.api;
+package br.com.produtos.apirest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

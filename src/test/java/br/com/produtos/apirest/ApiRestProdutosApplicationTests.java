@@ -1,4 +1,4 @@
-package br.com.produtos.api;
+package br.com.produtos.apirest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
