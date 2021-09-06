@@ -11,13 +11,17 @@ public class ProdutoModel implements Serializable {
     private static final long serialVersionUID = 1l;
 
     @Id
+    @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name="NOME")
     private String nome;
 
+    @Column(name="VALOR_UNITARIO")
     private BigDecimal valorUnitario;
 
+    @Column(name="DESCRICAO")
     private String descricao;
 
 
