@@ -1,4 +1,4 @@
-# Sample Project - produtos-apirest
+# Sample API REST CRUD Project - produtos-apirest
 
 Este projeto contém um CRUD simples de uma API REST para produto.
 
@@ -16,10 +16,10 @@ Este projeto contém um CRUD simples de uma API REST para produto.
 - Postgres
 - Tomcat Embarcado pelo Sring Boot.
 
-# Deploy Aplicação:
-- No caso do Heroku, seguir os passos [Contidos Aqui] (https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
+## Deploy Aplicação Spring Boot no Heroku:
+- Seguir os passos [Contidos Aqui](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku) 
 
-# Instruções para Teste da Api:
+## Instruções para Teste da Api:
 - Acessar o Swagger da API  [Swagger-Api](https://product-api-rest-app.herokuapp.com/enterprise/swagger-ui.html): Contém os métodos para execução e testes de funcionamento da API.
 
 ## Próximos Passos (Melhorias)
