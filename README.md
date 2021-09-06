@@ -14,7 +14,7 @@ Este projeto contém um CRUD simples de uma API REST para produto.
 ## Ambiente:
 - Heroku.
 - Postgres
-- Tomcat Embarcado pelo Sring Boot.
+- Tomcat Embarcado pelo Spring Boot.
 
 ## Deploy Aplicação Spring Boot no Heroku:
 - Seguir os passos [Contidos Aqui](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku) 
