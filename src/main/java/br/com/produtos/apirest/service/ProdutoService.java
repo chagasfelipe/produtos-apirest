@@ -12,13 +12,13 @@ import java.util.List;
 
 public interface ProdutoService {
 
-    public ResponseEntity<List<ProdutoModel>> findAll();
+    public List<ProdutoModel> findAll();
 
     public ResponseEntity<ProdutoModel> findById(@PathVariable("id") long id);
 
-    public ResponseEntity save(@RequestBody @Valid ProdutoModel produtoModel, BindingResult bindingResult);
+    public ProdutoModel create(@RequestBody @Valid ProdutoModel produtoModel);
 
-    public ResponseEntity update(@PathVariable("id") long id, @RequestBody @Valid ProdutoModel produtoModel, BindingResult bindingResult);
+    public ResponseEntity update(@PathVariable("id") long id, @RequestBody @Valid ProdutoModel produtoModel);
 
     public ResponseEntity deleteById(@PathVariable("id") long id);
 }

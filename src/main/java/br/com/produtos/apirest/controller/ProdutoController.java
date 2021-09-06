@@ -18,7 +18,7 @@ public class ProdutoController {
     ProdutoService produtoService;
 
     @GetMapping
-    public ResponseEntity<List<ProdutoModel>> findAll(){
+    public List<ProdutoModel> findAll(){
 
         return produtoService.findAll();
     }
@@ -30,15 +30,15 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody @Valid ProdutoModel produtoModel, BindingResult bindingResult){
+    public ProdutoModel create(@RequestBody @Valid ProdutoModel produtoModel){
 
-        return produtoService.save(produtoModel, bindingResult);
+        return produtoService.create(produtoModel);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable("id") long id, @RequestBody @Valid ProdutoModel produtoModel, BindingResult bindingResult){
+    public ResponseEntity update(@PathVariable("id") long id, @RequestBody @Valid ProdutoModel produtoModel){
 
-        return produtoService.update(id,produtoModel,bindingResult);
+        return produtoService.update(id,produtoModel);
     }
 
     @DeleteMapping("/{id}")

@@ -20,55 +20,48 @@ public class ProdutoServiceImpl implements ProdutoService {
     ProdutoRepository   produtoRepository;
 
     @Override
-    public ResponseEntity<List<ProdutoModel>> findAll() {
-        List<ProdutoModel> produtos = produtoRepository.findAll();
-        return ResponseEntity.ok(produtos);
+    public List<ProdutoModel> findAll() {
+        return produtoRepository.findAll();
     }
 
     @Override
     public ResponseEntity<ProdutoModel> findById(long id) {
 
-        ProdutoModel produto = produtoRepository.findById(id).get();
-        return ResponseEntity.ok(produto);
-    }
-
-    @Override
-    public ResponseEntity save(ProdutoModel produtoModel, BindingResult bindingResult) {
-
-        if(!bindingResult.hasErrors()){
-
-            produtoRepository.save(produtoModel);
-
-            URI location = ServletUriComponentsBuilder
-                    .fromCurrentRequest().path("/{id}")
-                    .buildAndExpand(produtoModel.getId()).toUri();
-
-            return ResponseEntity.created(location).build();
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
+        return produtoRepository.findById(id)
+                .map(record -> ResponseEntity.ok().body(record))
+                .orElse(ResponseEntity.notFound().build());
 
     }
 
     @Override
-    public ResponseEntity update(long id, ProdutoModel produtoModel, BindingResult bindingResult) {
+    public ProdutoModel create(ProdutoModel produtoModel) {
 
-        if (!bindingResult.hasErrors()){
+        return produtoRepository.save(produtoModel);
 
-            produtoModel.setId(id);
-            produtoRepository.save(produtoModel);
+    }
 
-            return ResponseEntity.ok().build();
+    @Override
+    public ResponseEntity update(long id, ProdutoModel produtoModel) {
 
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
+        return produtoRepository.findById(id)
+                .map(record -> {
+                    record.setNome(produtoModel.getNome());
+                    record.setDescricao(produtoModel.getDescricao());
+                    record.setValorUnitario(produtoModel.getValorUnitario());
+                    ProdutoModel updated = produtoRepository.save(record);
+                    return ResponseEntity.ok().body(updated);
+                }).orElse(ResponseEntity.notFound().build());
+
     }
 
     @Override
     public ResponseEntity deleteById(long id) {
 
-        produtoRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return produtoRepository.findById(id)
+                .map(record -> {
+                    produtoRepository.deleteById(id);
+                    return ResponseEntity.ok().build();
+                }).orElse(ResponseEntity.notFound().build());
+
     }
 }
