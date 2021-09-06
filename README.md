@@ -7,6 +7,7 @@ Este projeto contém um CRUD simples de uma API REST para produto.
 - JPA 
 - Open API Doc + Swagger
 - Hibernate
+- Lombok
 - Postgres (No caso utilizei um container Docker)
 - Maven
 - Heroku
